@@ -37,13 +37,13 @@ const express = require("express"),
             res.render("Usuario",{MyTitle:"Inicio de Usuario"})
         })
 
-        .get("/Create",(req,res)=>{
+        .get("/Propietario/Create",(req,res)=>{
             res.render("Create",{MyTitle:"Insertar propietario"})
         })
 
         .get("/Propietario/show",PropietarioControllers.show)
 
-        .get("/Propietario/create",PropietarioControllers.create)
+        .post("/Propietario/create",PropietarioControllers.create)
 
 
 module.exports = routes

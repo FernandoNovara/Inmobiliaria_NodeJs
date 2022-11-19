@@ -1,0 +1,13 @@
+body td.botones{
+    margin-right: 20px;
+}
+
+footer{
+    background-color: #222;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

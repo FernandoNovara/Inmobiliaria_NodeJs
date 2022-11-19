@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    include head.pug
+    body 
+        include header.pug
+
+        include main.pug
+
+            h1 Inicio de Contrato
+            br
+            p
+                a(class="btn btn-success",href=("/Contrato/#")) Ingresar un nuevo Contrato
+            table(class="table")
+                thead
+                    tr
+                        th Cod. Contrato
+                        th Cod. Inmueble
+                        th Inquilino
+                        th Fecha Inicio
+                        th Fecha Final
+                        th Monto
+                        th acciones
+                tbody
+                    tr
+                        td 1
+                        td 2
+                        td Fernando Novara
+                        td 10/05/1945
+                        td 31/12/1001
+                        td 20000.0
+                        td
+                            a(class="btn btn-warning",href=("/#"),title="Editar",style="margin-right: 2px;")
+                                i(class="fas fa-pencil-alt")
+
+                            a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
+                                i(class="fas fa-book")
+
+                            a(class="btn btn-danger",href=("/#"),title="Eliminar",style="margin-right: 2px;")
+                                i(class="fas fa-trash-alt")
+
+    include footer.pug

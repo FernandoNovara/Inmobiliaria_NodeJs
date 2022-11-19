@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    include head.pug
+    body 
+        include header.pug
+
+        include main.pug
+
+            h1 Inicio de Propietario
+            br
+            p
+                a(class="btn btn-success",href=("/Propietario/#")) Ingresar un nuevo Propietario
+            table(class="table")
+                thead
+                    tr
+                        th Cod. Propietario
+                        th Nombre
+                        th Apellido
+                        th Dni
+                        th Telefono
+                        th Email
+                        th acciones
+                tbody
+                    tr
+                        td 1
+                        td Fernando
+                        td Novara
+                        td 12345678
+                        td 1234123456
+                        td Fernando@gmail.com
+                        td
+                            a(class="btn btn-warning",href=("/#"),title="Editar",style="margin-right: 2px;")
+                                i(class="fas fa-pencil-alt")
+
+                            a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
+                                i(class="fas fa-book")
+
+                            a(class="btn btn-danger",href=("/#"),title="Eliminar",style="margin-right: 2px;")
+                                i(class="fas fa-trash-alt")
+
+    include footer.pug

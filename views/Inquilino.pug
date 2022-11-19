@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    include head.pug
+    body 
+        include header.pug
+
+        include main.pug
+
+            h1 Inicio de Inquilino
+            br
+            p
+                a(class="btn btn-success",href=("/Inquilino/#")) Ingresar un nuevo Inquilino
+            table(class="table")
+                thead
+                    tr
+                        th Cod. Inquilino
+                        th Nombre
+                        th Dni
+                        th Lugar de Trabajo
+                        th Direccion
+                        th Email
+                        th Telefono
+                        th acciones
+                tbody
+                    tr
+                        td 1
+                        td Fernando
+                        td Novara
+                        td 12345678
+                        td La Toma
+                        td Fernando@gmail.com
+                        td 1234123456
+                        td
+                            a(class="btn btn-warning",href=("/#"),title="Editar",style="margin-right: 2px;")
+                                i(class="fas fa-pencil-alt")
+
+                            a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
+                                i(class="fas fa-book")
+
+                            a(class="btn btn-danger",href=("/#"),title="Eliminar",style="margin-right: 2px;")
+                                i(class="fas fa-trash-alt")
+
+    include footer.pug

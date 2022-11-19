@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    include head.pug
+    body 
+        include header.pug
+
+        include main.pug
+
+            h1 Insertar Propietario
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form()
+                        div(class="form-group")
+                            label(for="Nombre",class="control-label") Nombre
+                            input(name="Nombre",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Apellido",class="control-label") Apellido
+                            input(name="Apellido",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Dni",class="control-label") Dni
+                            input(name="Dni",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Telefono",class="control-label") Telefono
+                            input(name="Telefono",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Email",class="control-label") Email
+                            input(name="Email",class="form-control")
+
+                        a(href="/Propietario/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Insertar 
+        
+    include footer.pug

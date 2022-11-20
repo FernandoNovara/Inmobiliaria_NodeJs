@@ -6,39 +6,33 @@ html(lang="en")
 
         include main.pug
 
-            h1 Insertar Propietario
+            h1 Editar Propietario
             br
             div(class="row")
                 div(class="col-md-4")
-                    form(action="/Propietario/Create" method="POST")
+                    form(action="/Propietario/Update" method="POST")
+                        input(type="hidden",name="id",value=`${Propietario.id}`)
                         div(class="form-group")
                             label(for="Nombre",class="control-label") Nombre
-                            input(name="Nombre",class="form-control")
+                            input(name="Nombre",value=`${Propietario.Nombre}`,class="form-control")
 
                         div(class="form-group")
                             label(for="Apellido",class="control-label") Apellido
-                            input(name="Apellido",class="form-control")
+                            input(name="Apellido",value=`${Propietario.Apellido}`,class="form-control")
 
                         div(class="form-group")
                             label(for="Dni",class="control-label") Dni
-                            input(name="Dni",class="form-control")
+                            input(name="Dni",value=`${Propietario.Dni}`,class="form-control")
 
                         div(class="form-group")
                             label(for="Telefono",class="control-label") Telefono
-                            input(name="Telefono",class="form-control")
+                            input(name="Telefono",value=`${Propietario.Telefono}`,class="form-control")
 
                         div(class="form-group")
                             label(for="Email",class="control-label") Email
-                            input(name="Email",class="form-control")
+                            input(name="Email",value=`${Propietario.Email}`,class="form-control")
 
                         a(href="/Propietario/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
-                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Insertar 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Editar 
         
     include footer.pug
-
-    
-    if(errorNombre)
-        div(class="alert alert-danger")
-            button(type="button",class="close",data-dismiss="alert") &times;
-            strong hola 
-                |Indicates a successful or positive action.

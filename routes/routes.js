@@ -2,7 +2,8 @@
 
 const express = require("express"),
     routes = express.Router(),
-    PropietarioControllers = require("../controllers/PropietarioControllers")
+    PropietarioControllers = require("../controllers/PropietarioControllers"),
+    {body, validationResult } = require('express-validator')
 
         //obtiene la direccion
         routes.get("/",(req,res)=> {
@@ -37,13 +38,19 @@ const express = require("express"),
             res.render("Usuario",{MyTitle:"Inicio de Usuario"})
         })
 
+        .get("/Propietario/show",PropietarioControllers.show)
+
         .get("/Propietario/Create",(req,res)=>{
             res.render("Create",{MyTitle:"Insertar propietario"})
         })
 
-        .get("/Propietario/show",PropietarioControllers.show)
+        .post("/Propietario/create",body('Email').isEmail(), body('Nombre').isLength({ min: 5, max:80 }),PropietarioControllers.create)
 
-        .post("/Propietario/create",PropietarioControllers.create)
+        .get("/Propietario/update/:id",PropietarioControllers.showUpdate)
+
+        .post("/Propietario/update",PropietarioControllers.update)
+
+        .get("/Propietario/delete",PropietarioControllers.delete)
 
 
 module.exports = routes

@@ -8,6 +8,7 @@ const express = require("express"),
     routes = require("./routes/routes"),
     viewDir = `${__dirname}/views`,
     publicDir = express.static(`${__dirname}/publics`),
+    storageDir = express.static(`${__dirname}/storage`),
     { connection } = require( './database/db_con' )
 
 
@@ -17,6 +18,7 @@ const express = require("express"),
         .use( express.json() )//permite convertir los datos del response a json
         .use(express.urlencoded({extended:false}) )// captura las peticiones de la url
         .use(publicDir)//directorio de archivos publicos
+        .use(storageDir)
         .use(routes)//rutas
 
         .listen(app.get("port"), //servidor localhost

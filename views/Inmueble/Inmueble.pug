@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Inicio de Inmueble
+            br
+            p
+                a(class="btn btn-success",href=("/Inmueble/Create")) Ingresar un nuevo Inmueble
+            table(class="table")
+                thead
+                    tr
+                        th Cod. Inmueble
+                        th Propietario
+                        th Direccion
+                        th Uso
+                        th Tipo
+                        th Amb.
+                        th Precio
+                        th Estado
+                        th acciones
+                tbody
+                    if(allInmueble)
+                        for val in allInmueble
+                            tr
+                                td= val.id
+                                td= val.propietarios.Nombre + " " + val.propietarios.Apellido 
+                                td= val.Direccion
+                                td= val.Uso
+                                td= val.Tipo
+                                td= val.Ambientes
+                                td= val.Precio
+                                td
+                                    if val.Estado
+                                        input(type="checkbox" name="Estado" checked disabled)
+                                    else
+                                        input(type="checkbox" name="Estado" disabled)
+                                td
+                                    a(class="btn btn-warning",href=(`/Inmueble/Update/${val.id}`),title="Editar",style="margin-right: 2px;")
+                                        i(class="fas fa-pencil-alt")
+
+                                    a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
+                                        i(class="fas fa-book")
+
+                                    a(class="btn btn-danger",href=(`/Inmueble/Delete?id=${val.id}`),title="Eliminar",style="margin-right: 2px;")
+                                        i(class="fas fa-trash-alt")
+
+    include ../Modulo/footer.pug

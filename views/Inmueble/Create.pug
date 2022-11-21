@@ -1,0 +1,68 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Insertar Inmueble
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Inmueble/Create" method="POST")
+                        div(class="form-group")
+                            label(for="Propietario",class="control-label") Propietario
+                            select(name="Propietario",class="form-control")
+                                option(value="-") -
+                                if propietarios
+                                    for val in propietarios
+                                        option(value=`${val.id}`)= val.Nombre + " " + val.Apellido  
+
+                        div(class="form-group")
+                            label(for="Direccion",class="control-label") Direccion
+                            input(name="Direccion",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Uso",class="control-label") Uso
+                            select(name="Uso", class="form-control")
+                                option(value="Residencial") Residencial
+                                option(value="Comercial") Comercial   
+
+                        div(class="form-group")
+                            label(for="Tipo",class="control-label") Tipo
+                            select(name="Tipo",class="form-control") 
+                                option(value="Casa") Casa
+                                option(value="Departamento") Departamento
+                                option(value="Deposito") Deposito
+                                option(value="Local") Local
+
+                        div(class="form-group")
+                            label(for="Ambientes",class="control-label") Ambientes
+                            input(type="number", name="Ambientes",class="form-control")
+                            
+                        div(class="form-group")
+                            label(for="Precio",class="control-label") Precio
+                            input(name="Precio",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Estado",class="control-label") Estado
+                            select(name="Estado", class="form-control")
+                                option(value="true") Disponible
+                                option(value="false") No Disponible 
+
+                        a(href="/Inmueble/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Insertar
+
+                        br
+                        br 
+                        br
+        
+    include ../Modulo/footer.pug
+
+    
+    if(errorNombre)
+        div(class="alert alert-danger")
+            button(type="button",class="close",data-dismiss="alert") &times;
+            strong hola 
+                |Indicates a successful or positive action.

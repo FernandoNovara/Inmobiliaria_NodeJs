@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Editar Usuario
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Usuario/Update" method="POST" enctype="multipart/form-data")
+                        input(type="hidden", name="id" value=`${Usuario.id}`) 
+                        div(class="form-group")
+                            label(for="Nombre",class="control-label") Nombre
+                            input(name="Nombre",class="form-control",value=`${Usuario.Nombre}`)
+
+                        div(class="form-group")
+                            label(for="Apellido",class="control-label") Apellido
+                            input(name="Apellido",class="form-control",value=`${Usuario.Apellido}`)
+
+                        div(class="form-group")
+                            label(for="Email",class="control-label") Email
+                            input(name="Email",class="form-control",value=`${Usuario.Email}`)
+
+                        div(class="form-group")
+                            label(for="Clave",class="control-label") Clave
+                            input(name="Clave",class="form-control",value=`${Usuario.Clave}`)
+
+                        div(class="form-group")
+                            label(for="Avatar",class="control-label") Avatar
+                            input(type="file", name="Avatar", class="form-control")
+
+                        div(class="form-group")
+                            label(for="Rol",class="control-label") Rol
+                            select(name="Rol",class="form-control")
+                                if Usuario.Rol == "Empleado" 
+                                    option(value="Empleado" select) Empleado
+                                    option(value="Administrador") Administrador 
+                                else 
+                                    option(value="Administrador" select) Administrador
+                                    option(value="Empleado") Empleado
+                                    
+
+                        a(href="/Usuario/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Editar 
+
+                        br
+                        br
+        
+    include ../Modulo/footer.pug

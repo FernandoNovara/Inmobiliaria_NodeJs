@@ -1,3 +1,8 @@
 body td.botones{
     margin-right: 20px;
 }
+
+img.imagen{
+    width: 32px;
+    border-radius: 25px;
+}

@@ -1,35 +1,29 @@
 doctype html
 html(lang="en")
-    include head.pug
+    include ../Modulo/head.pug
     body 
-        include header.pug
+        include ../Modulo/header.pug
 
-        include main.pug
+        include ../Modulo/main.pug
 
-            h1 Inicio de Usuario
+            h1 Inicio de Pago
             br
             p
-                a(class="btn btn-success",href=("/Usuario/#")) Ingresar un nuevo Usuario
+                a(class="btn btn-success",href=("/Pago/#")) Ingresar un nuevo Pago
             table(class="table")
                 thead
                     tr
-                        th Cod. Usuario
-                        th Nombre
-                        th Apellido
-                        th Email
-                        th Clave
-                        th Avatar
-                        th Rol
+                        th Cod. Pago
+                        th Cod. Contrato
+                        th Fecha Emision
+                        th Importe
                         th acciones
                 tbody
                     tr
                         td 1
-                        td Fernando
-                        td Novara
-                        td Fernando@gmail.com
-                        td 1234
-                        td ---
-                        td Empleado
+                        td 1
+                        td 18/12/1619
+                        td 20000.0
                         td
                             a(class="btn btn-warning",href=("/#"),title="Editar",style="margin-right: 2px;")
                                 i(class="fas fa-pencil-alt")
@@ -40,4 +34,4 @@ html(lang="en")
                             a(class="btn btn-danger",href=("/#"),title="Eliminar",style="margin-right: 2px;")
                                 i(class="fas fa-trash-alt")
 
-    include footer.pug
+    include ../Modulo/footer.pug

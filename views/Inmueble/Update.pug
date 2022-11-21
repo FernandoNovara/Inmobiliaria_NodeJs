@@ -1,0 +1,92 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Editar Inmueble
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Inmueble/Update" method="POST")
+                        input(type="hidden", value=`${Inmueble.id}` , name="id")
+                        div(class="form-group")
+                            label(for="Propietario",class="control-label") Propietario
+                            select(name="Propietario",class="form-control")
+                                if propietarios
+                                    for val in propietarios
+                                        if val.id == Inmueble.propietario_id
+                                            option(value=`${val.id}` checked)= val.Nombre + " " + val.Apellido  
+                                        else 
+                                            option(value=`${val.id}`)= val.Nombre + " " + val.Apellido  
+
+                        div(class="form-group")
+                            label(for="Direccion",class="control-label") Direccion
+                            input(name="Direccion",class="form-control" value=`${Inmueble.Direccion}`)
+
+                        div(class="form-group")
+                            label(for="Uso",class="control-label") Uso
+                            select(name="Uso", class="form-control")
+                                if Inmueble.Uso == "Residencial"
+                                    option(value="Residencial" selected) Residencial
+                                    option(value="Comercial") Comercial  
+                                else
+                                    option(value="Comercial" selected) Comercial 
+                                    option(value="Residencial") Residencial
+
+                        div(class="form-group")
+                            label(for="Tipo",class="control-label") Tipo
+                            select(name="Tipo",class="form-control") 
+                                case Inmueble.Tipo 
+                                    when "Casa"
+                                        option(value="Casa" selected) Casa
+                                        option(value="Departamento") Departamento
+                                        option(value="Deposito") Deposito
+                                        option(value="Local") Local
+                                    when "Departamento"
+                                        option(value="Departamento" selected) Departamento
+                                        option(value="Casa") Casa
+                                        option(value="Deposito") Deposito
+                                        option(value="Local") Local
+                                    when "Deposito"
+                                        option(value="Deposito" selected) Deposito
+                                        option(value="Casa") Casa
+                                        option(value="Departamento") Departamento
+                                        option(value="Local") Local
+                                    default
+                                        option(value="Local" selected) Local
+                                        option(value="Casa") Casa
+                                        option(value="Departamento") Departamento
+                                        option(value="Deposito") Deposito                                       
+
+                        div(class="form-group")
+                            label(for="Ambientes",class="control-label") Ambientes
+                            input(type="number", name="Ambientes",class="form-control" value=`${Inmueble.Ambientes}`)
+                            
+                        div(class="form-group")
+                            label(for="Precio",class="control-label") Precio
+                            input(name="Precio",class="form-control" value=`${Inmueble.Precio}`)
+
+                        div(class="form-group")
+                            label(for="Estado",class="control-label") Estado
+                            select(name="Estado", class="form-control")
+                                if Inmueble.Estado
+                                    option(value="true" selected) Disponible
+                                    option(value="false") No Disponible
+                                else
+                                    option(value="true") Disponible
+                                    option(value="false" selected) No Disponible
+                                 
+
+                        a(href="/Inmueble/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Editar
+
+                        br
+                        br 
+                        br
+        
+    include ../Modulo/footer.pug
+        
+    include ../Modulo/footer.pug

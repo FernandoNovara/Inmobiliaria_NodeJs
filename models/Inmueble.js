@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Inmueble extends Model {
 
     static associate(models) {
-      Inmueble.belongsTo(models.Propietario)
+      Inmueble.belongsTo(models.Propietario, {as: "propietarios", foreignKey: "propietario_id"})
       Inmueble.hasOne(models.Contrato, { as: "contrato_inmueble" , foreignKey: "inmueble_id"})
     }
   }

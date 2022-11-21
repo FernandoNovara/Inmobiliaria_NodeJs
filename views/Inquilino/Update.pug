@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    include ../head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Editar Propietario
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Inquilino/Update" method="POST")
+                        input(type="hidden", name="id" ,value=`${Inquilino.id}`)
+                        div(class="form-group")
+                            label(for="Nombre",class="control-label") Nombre
+                            input(name="Nombre",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Dni",class="control-label") Dni
+                            input(name="Dni",class="form-control")
+
+                        div(class="form-group")
+                            label(for="LugarTrabajo",class="control-label") Lugar de Trabajo
+                            input(name="LugarTrabajo",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Direccion",class="control-label") Direccion
+                            input(name="Direccion",class="form-control")
+
+
+                        div(class="form-group")
+                            label(for="Telefono",class="control-label") Telefono
+                            input(name="Telefono",class="form-control")
+
+                        div(class="form-group")
+                            label(for="Email",class="control-label") Email
+                            input(name="Email",class="form-control")
+
+                        a(href="/Inquilino/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Editar 
+        
+    include ../Modulo/footer.pug

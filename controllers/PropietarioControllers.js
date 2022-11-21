@@ -11,11 +11,11 @@ module.exports = {
 
             if(propietariosList.length > 0)
             {
-                res.render("Propietario",{allPropietario: propietariosList , MyTitle:"Inicio de Propietario"})
+                res.render("Propietario/Propietario",{allPropietario: propietariosList , MyTitle:"Inicio de Propietario"})
             }
             else
             {
-                res.json({ msg: "No hay datos."})
+                res.redirect("/Propietario")
             }
         } catch (error) {
             console.log(error)
@@ -31,7 +31,7 @@ module.exports = {
             if (!errors.isEmpty()) {
                 if(errors.array()[0].param == "Nombre")
                 {
-                    return res.render("Create", { "errorNombre": true})
+                    return res.render("Propietario/Create", { "errorNombre": true})
                 }
             }
 
@@ -70,7 +70,7 @@ module.exports = {
 
             if(propietario)
             {
-                res.render("Update",{ "Propietario": propietario })
+                res.render("Propietario/Update",{ "Propietario": propietario })
             }
 
         } catch (error) {

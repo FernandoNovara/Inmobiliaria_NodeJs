@@ -4,6 +4,7 @@ const express = require("express"),
     routes = express.Router(),
     PropietarioControllers = require("../controllers/PropietarioControllers"),
     InmuebleControllers = require("../controllers/InmuebleControllers"),
+    InquilinoControllers = require("../controllers/InquilinoControllers"),
     UsuarioControllers = require("../controllers/UsuarioControllers"),
     {body, validationResult } = require('express-validator')
 
@@ -51,6 +52,18 @@ const express = require("express"),
         .post("/Inmueble/update",InmuebleControllers.update)
 
         .get("/Inmueble/delete",InmuebleControllers.delete)
+
+        .get("/Inquilino/show",InquilinoControllers.show)
+
+        .get("/Inquilino/Create",(req,res)=>{ res.render("Inquilino/Create",{MyTitle:"Insertar Inquilino"}) })
+
+        .post("/Inquilino/create",InquilinoControllers.create)
+
+        .get("/Inquilino/update/:id",InquilinoControllers.showUpdate)
+
+        .post("/Inquilino/update",InquilinoControllers.update)
+
+        .get("/Inquilino/delete",InquilinoControllers.delete)
 
         .get("/Usuario/show",UsuarioControllers.show)
 

@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       Inmueble.belongsTo(models.Propietario, {as: "propietarios", foreignKey: "propietario_id"})
-      Inmueble.hasOne(models.Contrato, { as: "contrato_inmueble" , foreignKey: "inmueble_id"})
+      Inmueble.hasMany(models.Contrato, { as: "contrato_inmueble" , foreignKey: "inmueble_id"})
     }
   }
 

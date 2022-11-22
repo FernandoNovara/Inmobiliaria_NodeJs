@@ -9,7 +9,7 @@ html(lang="en")
             h1 Inicio de Contrato
             br
             p
-                a(class="btn btn-success",href=("/Contrato/#")) Ingresar un nuevo Contrato
+                a(class="btn btn-success",href=("/Contrato/Create")) Ingresar un nuevo Contrato
             table(class="table")
                 thead
                     tr
@@ -21,21 +21,23 @@ html(lang="en")
                         th Monto
                         th acciones
                 tbody
-                    tr
-                        td 1
-                        td 2
-                        td Fernando Novara
-                        td 10/05/1945
-                        td 31/12/1001
-                        td 20000.0
-                        td
-                            a(class="btn btn-warning",href=("/#"),title="Editar",style="margin-right: 2px;")
-                                i(class="fas fa-pencil-alt")
+                    if allContratos
+                        for val in allContratos
+                            tr
+                                td= val.id
+                                td= val.Inmuebles.Direccion
+                                td= val.Inquilinos.Nombre
+                                td= val.FechaInicio
+                                td= val.FechaFinal
+                                td= val.Monto
+                                td
+                                    a(class="btn btn-warning",href=(`/Contrato/Update/${val.id}`),title="Editar",style="margin-right: 2px;")
+                                        i(class="fas fa-pencil-alt")
 
-                            a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
-                                i(class="fas fa-book")
+                                    a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
+                                        i(class="fas fa-book")
 
-                            a(class="btn btn-danger",href=("/#"),title="Eliminar",style="margin-right: 2px;")
-                                i(class="fas fa-trash-alt")
+                                    a(class="btn btn-danger",href=(`/Contrato/Delete?id=${val.id}`),title="Eliminar",style="margin-right: 2px;")
+                                        i(class="fas fa-trash-alt")
 
     include ../Modulo/footer.pug

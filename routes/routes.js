@@ -5,6 +5,7 @@ const express = require("express"),
     PropietarioControllers = require("../controllers/PropietarioControllers"),
     InmuebleControllers = require("../controllers/InmuebleControllers"),
     InquilinoControllers = require("../controllers/InquilinoControllers"),
+    ContratoControllers = require("../controllers/ContratoControllers"),
     UsuarioControllers = require("../controllers/UsuarioControllers"),
     {body, validationResult } = require('express-validator')
 
@@ -29,6 +30,8 @@ const express = require("express"),
 
         .get("/Usuario",(req,res)=>{ res.render("Usuario/Usuario",{MyTitle:"Inicio de Usuario"}) })
 
+        // Rutas de Propietario
+        
         .get("/Propietario/show",PropietarioControllers.show)
 
         .get("/Propietario/Create",(req,res)=>{ res.render("Propietario/Create",{MyTitle:"Insertar propietario"}) })
@@ -41,6 +44,8 @@ const express = require("express"),
 
         .get("/Propietario/delete",PropietarioControllers.delete)
 
+        // Rutas de Inmueble
+        
         .get("/Inmueble/show",InmuebleControllers.show)
         
         .get("/Inmueble/Create",InmuebleControllers.viewCreate)
@@ -52,6 +57,8 @@ const express = require("express"),
         .post("/Inmueble/update",InmuebleControllers.update)
 
         .get("/Inmueble/delete",InmuebleControllers.delete)
+        
+        // Rutas de Inquilino
 
         .get("/Inquilino/show",InquilinoControllers.show)
 
@@ -64,6 +71,22 @@ const express = require("express"),
         .post("/Inquilino/update",InquilinoControllers.update)
 
         .get("/Inquilino/delete",InquilinoControllers.delete)
+        
+        // Rutas de Contrato
+        
+        .get("/Contrato/show",ContratoControllers.show)
+
+        .get("/Contrato/Create",ContratoControllers.viewCreate)
+
+        .post("/Contrato/create",ContratoControllers.create)
+
+        .get("/Contrato/update/:id",ContratoControllers.showUpdate)
+
+        .post("/Contrato/update",ContratoControllers.update)
+
+        .get("/Contrato/delete",ContratoControllers.delete)
+
+        // Rutas de Usuario
 
         .get("/Usuario/show",UsuarioControllers.show)
 

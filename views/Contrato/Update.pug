@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Editar Contrato
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Contrato/Update" method="POST")
+                        input(type="hidden", name="id" , value=`${Contrato.id}`)
+                        div(class="form-group")
+                            label(for="Inmueble",class="control-label") Inmueble
+                            select(name="Inmueble",class="form-control")
+                                option(value="-") -
+                                for val in inmuebles
+                                    if(Contrato.Inmuebles.id == val.id) 
+                                        option(value=`${val.id}` selected)= val.Direccion
+                                    else
+                                        option(value=`${val.id}`)= val.Direccion
+
+                        div(class="form-group")
+                            label(for="Inquilino",class="control-label") Inquilino
+                            select(name="Inquilino",class="form-control")
+                                option(value="-") -
+                                    for val in inquilinos
+                                        if(Contrato.inquilino_id == val.id) 
+                                            option(value=`${val.id}` selected)= val.Nombre
+                                        else
+                                            option(value=`${val.id}`)= val.Nombre
+
+                        div(class="form-group")
+                            label(for="FechaInicio",class="control-label") Fecha de Inicio
+                            input(type="date", name="FechaInicio" ,class="form-control" ,value=`${Contrato.FechaInicio}`)
+
+                        div(class="form-group")
+                            label(for="FechaFinal",class="control-label") Fecha de Finaliazacion
+                            input(type="date", name="FechaFinal" ,class="form-control",value=`${Contrato.FechaFinal}`)
+                            
+                        div(class="form-group")
+                            label(for="Monto",class="control-label") Monto
+                            input(name="Monto",class="form-control",value=`${Contrato.Monto}`)
+
+                        a(href="/Contrato/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Editar
+        
+    include ../Modulo/footer.pug

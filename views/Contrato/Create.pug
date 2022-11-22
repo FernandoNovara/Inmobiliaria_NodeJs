@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Insertar Contrato
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Contrato/Create" method="POST")
+                        div(class="form-group")
+                            label(for="Inmueble",class="control-label") Inmueble
+                            select(name="Inmueble",class="form-control")
+                                option(value="-") -
+                                if inmuebles
+                                    for inmueble in inmuebles
+                                        option(value=`${inmueble.id}`)= inmueble.Direccion
+
+                        div(class="form-group")
+                            label(for="Inquilino",class="control-label") Inquilino
+                            select(name="Inquilino",class="form-control")
+                                option(value="-") -
+                                if inquilinos
+                                    for inquilino in inquilinos
+                                        option(value=`${inquilino.id}`)= inquilino.Nombre
+
+                        div(class="form-group")
+                            label(for="FechaInicio",class="control-label") Fecha de Inicio
+                            input(type="date", name="FechaInicio" ,class="form-control")
+
+                        div(class="form-group")
+                            label(for="FechaFinal",class="control-label") Fecha de Finaliazacion
+                            input(type="date", name="FechaFinal" ,class="form-control")
+                            
+                        div(class="form-group")
+                            label(for="Monto",class="control-label") Monto
+                            input(name="Monto",class="form-control")
+
+                        a(href="/Contrato/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Insertar
+
+        
+    include ../Modulo/footer.pug

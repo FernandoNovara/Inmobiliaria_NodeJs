@@ -5,13 +5,13 @@ module.exports = (sequelize, DataTypes) => {
   class Contrato extends Model {
 
     static associate(models) {
-        Contrato.belongsTo(models.Inmueble)
-        Contrato.belongsTo(models.Inquilino)
+        Contrato.belongsTo(models.Inmueble, {as: "Inmuebles", foreignKey: "inmueble_id"})
+        Contrato.belongsTo(models.Inquilino, {as: "Inquilinos", foreignKey: "inquilino_id"})
         Contrato.hasMany(models.Pago, {as: "pago_contrato",foreignKey: "contrato_id"})
     }
   }
   Contrato.init({
-    FechaIncio: {
+    FechaInicio: {
         type: DataTypes.DATE,
         allowNull: false 
     },

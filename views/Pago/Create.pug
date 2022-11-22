@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Insertar Pago
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Pago/Create" method="POST")
+
+                        div(class="form-group")
+                            label(for="Contrato",class="control-label") Direccion de Inmueble de Contrato
+                            select(name="Contrato", class="form-control")
+                                for val in contratos
+                                    option(value=`${val.id}`)= val.Inmuebles.Direccion
+
+                        div(class="form-group")
+                            label(for="FechaEmision",class="control-label") Fecha de Emision
+                            input(type="date", name="FechaEmision" ,class="form-control")
+
+                        div(class="form-group")
+                            label(for="Importe",class="control-label") Importe
+                            input(name="Importe",class="form-control")
+
+
+                        a(href="/Pago/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Insertar
+
+        
+    include ../Modulo/footer.pug

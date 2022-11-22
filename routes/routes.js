@@ -7,6 +7,8 @@ const express = require("express"),
     InquilinoControllers = require("../controllers/InquilinoControllers"),
     ContratoControllers = require("../controllers/ContratoControllers"),
     UsuarioControllers = require("../controllers/UsuarioControllers"),
+    PagoControllers = require("../controllers/PagoControllers"),
+
     {body, validationResult } = require('express-validator')
 
         //obtiene la direccion
@@ -85,6 +87,20 @@ const express = require("express"),
         .post("/Contrato/update",ContratoControllers.update)
 
         .get("/Contrato/delete",ContratoControllers.delete)
+
+        // Rutas de Pago
+
+        .get("/Pago/show",PagoControllers.show)
+
+        .get("/Pago/Create",PagoControllers.viewCreate)
+
+        .post("/Pago/create",PagoControllers.create)
+
+        .get("/Pago/update/:id",PagoControllers.showUpdate)
+
+        .post("/Pago/update",PagoControllers.update)
+
+        .get("/Pago/delete",PagoControllers.delete)
 
         // Rutas de Usuario
 

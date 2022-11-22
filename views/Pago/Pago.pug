@@ -9,29 +9,31 @@ html(lang="en")
             h1 Inicio de Pago
             br
             p
-                a(class="btn btn-success",href=("/Pago/#")) Ingresar un nuevo Pago
+                a(class="btn btn-success",href=("/Pago/Create")) Ingresar un nuevo Pago
             table(class="table")
                 thead
                     tr
                         th Cod. Pago
-                        th Cod. Contrato
+                        th Dir. de Inmueble de Contrato
                         th Fecha Emision
                         th Importe
                         th acciones
                 tbody
-                    tr
-                        td 1
-                        td 1
-                        td 18/12/1619
-                        td 20000.0
-                        td
-                            a(class="btn btn-warning",href=("/#"),title="Editar",style="margin-right: 2px;")
-                                i(class="fas fa-pencil-alt")
+                    if allPago 
+                        for val in allPago
+                            tr
+                                td= val.id
+                                td= val.Contratos.Inmuebles.Direccion
+                                td= val.FechaEmision
+                                td= val.Importe
+                                td
+                                    a(class="btn btn-warning",href=(`/Pago/Update/${val.id}`),title="Editar",style="margin-right: 2px;")
+                                        i(class="fas fa-pencil-alt")
 
-                            a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
-                                i(class="fas fa-book")
+                                    a(class="btn btn-info",href=("/#"),title="Detalles",style="margin-right: 2px;")
+                                        i(class="fas fa-book")
 
-                            a(class="btn btn-danger",href=("/#"),title="Eliminar",style="margin-right: 2px;")
-                                i(class="fas fa-trash-alt")
+                                    a(class="btn btn-danger",href=(`/Pago/Delete?id=${val.id}`),title="Eliminar",style="margin-right: 2px;")
+                                        i(class="fas fa-trash-alt")
 
     include ../Modulo/footer.pug

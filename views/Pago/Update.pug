@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Editar Pago
+            br
+            div(class="row")
+                div(class="col-md-4")
+                    form(action="/Pago/Update" method="POST")
+                        input(type="hidden", name="id", value=`${Pago.id}`)
+                        div(class="form-group")
+                            label(for="Contrato",class="control-label") Direccion de Inmueble de Contrato
+                            select(name="Contrato",class="form-control") 
+                                for val in contratos
+                                    if val.id == Pago.Contratos.id
+                                        option(value= `${val.id}` selected)= val.Inmuebles.Direccion 
+                                    else
+                                        option(value= `${val.id}`)= val.Inmuebles.Direccion
+                                    
+                        div(class="form-group")
+                            label(for="FechaEmision",class="control-label") Fecha de Emision
+                            input(type="date", name="FechaEmision" ,class="form-control" ,value=`${Pago.FechaEmision}`)
+
+                        div(class="form-group")
+                            label(for="Importe",class="control-label") Importe
+                            input(name="Importe",class="form-control", value=`${Pago.Importe}`)
+
+
+                        a(href="/Pago/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+                        button(type="submit",class="btn btn-success",style="margin-right: 2px;") Editar
+        
+    include ../Modulo/footer.pug

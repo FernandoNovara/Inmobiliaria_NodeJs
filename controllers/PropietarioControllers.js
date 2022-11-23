@@ -78,6 +78,29 @@ module.exports = {
         }
     },
 
+    async details(req,res)
+    {
+        try {
+            
+            const propietario = await dbConfig.Propietario.findOne(
+                {
+                    where:
+                    {
+                        id: req.params.id
+                    }
+                }
+            )
+
+            if(propietario)
+            {
+                res.render("Propietario/Details",{ "Propietario": propietario })
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     async update(req,res)
     {
         try {

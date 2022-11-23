@@ -24,12 +24,6 @@ module.exports = {
                 }
             )
 
-            for (val in contratosList)
-            {
-                val.FechaInicio = transformDates(val.FechaInicio),
-                val.FechaFinal = transformDates(val.FechaFinal)
-            } 
-
             if(contratosList.length > 0)
             {
                 res.render("Contrato/Contrato",{"allContratos": contratosList , MyTitle:"Inicio de Contrato"})

@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Detales de Propietario
+            br
+            <div>
+                hr
+                dl(class="row")
+                    dt(class = "col-sm-2")= "Nombre"
+
+                    dd(class = "col-sm-10")= Propietario.Nombre + " " + Propietario.Apellido
+                        
+                    dt(class = "col-sm-2")= "Dni"
+
+                    dd(class = "col-sm-10")= Propietario.Dni
+                        
+                    dt(class = "col-sm-2")= "Telefono"
+                        
+                    dd(class = "col-sm-10")= Propietario.Telefono
+                        
+                    dt(class = "col-sm-2")= "Email"
+
+                    dd(class = "col-sm-10")= Propietario.Email
+
+    include ../Modulo/footer.pug

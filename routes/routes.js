@@ -45,6 +45,8 @@ const express = require("express"),
 
         .post("/Propietario/update",PropietarioControllers.update)
 
+        .get("/Propietario/Details/:id",PropietarioControllers.details)
+
         .get("/Propietario/delete",PropietarioControllers.delete)
 
         // Rutas de Inmueble

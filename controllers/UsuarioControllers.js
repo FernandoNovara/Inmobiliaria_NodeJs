@@ -72,6 +72,29 @@ module.exports = {
         }
     },
 
+    async details(req,res)
+    {
+        try {
+            
+            const usuario = await dbConfig.Usuario.findOne(
+                {
+                    where:
+                    {
+                        id: req.params.id
+                    }
+                }
+            )
+
+            if(usuario)
+            {
+                res.render("Usuario/Details",{ "Usuario": usuario })
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     async update(req,res)
     {
         try {

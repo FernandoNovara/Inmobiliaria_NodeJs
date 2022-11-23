@@ -116,6 +116,8 @@ const express = require("express"),
         .get("/Usuario/Update/:id",UsuarioControllers.showUpdate)
 
         .post("/Usuario/update",upload.single("Avatar"),UsuarioControllers.update)
+
+        .get("/Usuario/Details/:id",UsuarioControllers.details)
         
         .get("/Usuario/delete",UsuarioControllers.delete)
 

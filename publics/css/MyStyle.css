@@ -6,3 +6,8 @@ img.imagen{
     width: 32px;
     border-radius: 25px;
 }
+
+img.imagenDetalles{
+    width: 100px;
+    border-radius: 15px;
+}

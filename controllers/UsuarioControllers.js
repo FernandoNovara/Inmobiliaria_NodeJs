@@ -1,22 +1,8 @@
 const {dbConfig} = require("../database/db_con"),
-    multer = require("multer"),
-    path = require("path"),
-    storage = multer.diskStorage({
-        destination: path.join(__dirname, '../storage'),
-        filename: (req, file, cb)=>{
-            cb(null, 'IMG_'+Math.round(Math.random() * (Date.now()-100000 + 1) + 100000) + '_' + Date.now() + '.' + file.mimetype.split('/')[1])
-        }
-    }),
-    minetypes = ['image/png','image/jpeg','image/jpg','image/webp','image/gif'],
-    upload = multer(
-        { 
-            storage: storage,
-        }
-    ),
-    fs = require("fs")
+    fs = require("fs"),
+    { minetypes } = require("../helppers/multerConfig")
 
 module.exports = {
-    upload: upload,
     
     async show(req,res){
 

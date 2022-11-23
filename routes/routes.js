@@ -2,6 +2,7 @@
 
 const express = require("express"),
     routes = express.Router(),
+    { upload } = require("../helppers/multerConfig"),
     PropietarioControllers = require("../controllers/PropietarioControllers"),
     InmuebleControllers = require("../controllers/InmuebleControllers"),
     InquilinoControllers = require("../controllers/InquilinoControllers"),
@@ -108,11 +109,11 @@ const express = require("express"),
 
         .get("/Usuario/Create",(req,res)=>{ res.render("Usuario/Create",{MyTitle:"Insertar Usuario"}) })
 
-        .post("/Usuario/create" ,UsuarioControllers.upload.single("Avatar"),UsuarioControllers.create)
+        .post("/Usuario/create" ,upload.single("Avatar"),UsuarioControllers.create)
 
         .get("/Usuario/Update/:id",UsuarioControllers.showUpdate)
 
-        .post("/Usuario/update",UsuarioControllers.upload.single("Avatar"),UsuarioControllers.update)
+        .post("/Usuario/update",upload.single("Avatar"),UsuarioControllers.update)
         
         .get("/Usuario/delete",UsuarioControllers.delete)
 

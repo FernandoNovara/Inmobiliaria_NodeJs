@@ -1,4 +1,5 @@
-const {dbConfig} = require("../database/db_con")
+const {dbConfig} = require("../database/db_con"),
+        {transformDates} = require("../helppers/transformDate")
 
 
 module.exports = {
@@ -22,6 +23,12 @@ module.exports = {
                     ]
                 }
             )
+
+            for (val in contratosList)
+            {
+                val.FechaInicio = transformDates(val.FechaInicio),
+                val.FechaFinal = transformDates(val.FechaFinal)
+            } 
 
             if(contratosList.length > 0)
             {

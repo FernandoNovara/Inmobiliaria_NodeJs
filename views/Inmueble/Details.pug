@@ -1,0 +1,48 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Detales de Inmueble
+            br
+            <div>
+                hr
+                dl(class="row")
+                    dt(class = "col-sm-2")= "Propietario"
+
+                    dd(class = "col-sm-10")= Inmueble.propietarios.Nombre + " " + Inmueble.propietarios.Apellido
+
+                    dt(class = "col-sm-2")= "Direccion"
+
+                    dd(class = "col-sm-10")= Inmueble.Direccion
+
+                    dt(class = "col-sm-2")= "Uso"
+
+                    dd(class = "col-sm-10")= Inmueble.Uso
+  
+                    dt(class = "col-sm-2")= "Tipo"
+
+                    dd(class = "col-sm-10")= Inmueble.Tipo
+
+                    dt(class = "col-sm-2")= "Ambientes"
+                        
+                    dd(class = "col-sm-10")= Inmueble.Ambientes
+                    
+                    dt(class = "col-sm-2")= "Precio"
+                        
+                    dd(class = "col-sm-10")= Inmueble.Precio
+
+                    dt(class = "col-sm-2")= "Estado"
+                        
+                    dd(class = "col-sm-10")
+                        if Inmueble.Estado
+                            input(type="checkbox" checked disabled)
+                        else
+                            input(type="checkbox" disabled)
+
+            a(href="/Inmueble/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+
+    include ../Modulo/footer.pug

@@ -97,6 +97,32 @@ module.exports = {
         }
     },
 
+    async details(req,res)
+    {
+        try {
+
+            const inmueble = await dbConfig.Inmueble.findOne(
+                {
+                    include:{
+                        association: "propietarios"
+                    },
+                    where:
+                    {
+                        id: req.params.id
+                    }
+                }
+            )
+            
+            if(inmueble)
+            {
+                res.render("Inmueble/Details",{ "Inmueble": inmueble })
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     async update(req,res)
     {
         try {

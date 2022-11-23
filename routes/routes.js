@@ -61,6 +61,8 @@ const express = require("express"),
 
         .post("/Inmueble/update",InmuebleControllers.update)
 
+        .get("/Inmueble/Details/:id",InmuebleControllers.details)
+
         .get("/Inmueble/delete",InmuebleControllers.delete)
         
         // Rutas de Inquilino

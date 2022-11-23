@@ -103,6 +103,8 @@ const express = require("express"),
 
         .post("/Pago/update",PagoControllers.update)
 
+        .get("/Pago/Details/:id",PagoControllers.details)
+
         .get("/Pago/delete",PagoControllers.delete)
 
         // Rutas de Usuario

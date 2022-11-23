@@ -139,6 +139,45 @@ module.exports = {
         }
     },
 
+    async details(req,res)
+    {
+        try {
+            
+            const Pago = await dbConfig.Pago.findOne(
+                {
+                    
+                    include: {
+                        association: "Contratos",
+                        include:
+                        [
+                            {
+                                association: "Inmuebles",
+                                include: 
+                                {
+                                    association: "propietarios"
+                                }
+                            },
+                            {
+                                association: "Inquilinos"
+                            }]
+                    },
+                    where:
+                    {
+                        id: req.params.id
+                    }
+                }
+            )
+            
+            if(Pago)
+            {
+                res.render("Pago/Details",{ "Pago": Pago })
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     async update(req,res)
     {
         try {

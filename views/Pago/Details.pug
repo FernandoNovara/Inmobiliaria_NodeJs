@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Detales de Pago
+            br
+            <div>
+                hr
+                dl(class="row")
+                    dt(class = "col-sm-3")= "Dir. de Inmueble de Contrato"
+
+                    dd(class = "col-sm-9")= Pago.Contratos.Inmuebles.Direccion 
+                        
+                    dt(class = "col-sm-3")= "Fecha Emision"
+
+                    dd(class = "col-sm-9")= Pago.FechaEmision
+                        
+                    dt(class = "col-sm-3")= "Importe"
+                        
+                    dd(class = "col-sm-9")= Pago.Importe
+
+            a(href="/Pago/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+
+    include ../Modulo/footer.pug

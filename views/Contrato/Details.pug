@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Detales de Contrato
+            br
+            <div>
+                hr
+                dl(class="row")
+                    dt(class = "col-sm-3")= " Dir. de Inmueble de contrato"
+
+                    dd(class = "col-sm-9")= Contrato.Inmuebles.Direccion
+
+                    dt(class = "col-sm-3")= "Inquilino"
+
+                    dd(class = "col-sm-9")= Contrato.Inquilinos.Nombre
+
+                    dt(class = "col-sm-3")= "Fecha Inicio"
+
+                    dd(class = "col-sm-9")= Contrato.FechaInicio
+  
+                    dt(class = "col-sm-3")= "Fecha Final"
+
+                    dd(class = "col-sm-9")= Contrato.FechaFinal
+
+                    dt(class = "col-sm-3")= "Monto"
+                        
+                    dd(class = "col-sm-9")= Contrato.Monto
+                    
+
+            a(href="/Contrato/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+
+    include ../Modulo/footer.pug

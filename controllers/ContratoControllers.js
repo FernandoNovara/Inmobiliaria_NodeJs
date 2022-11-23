@@ -123,6 +123,40 @@ module.exports = {
         }
     },
 
+    async details(req,res)
+    {
+        try {
+            
+            const contrato = await dbConfig.Contrato.findOne(
+                {
+                    include:[
+                        {
+                            association: "Inmuebles",
+                            include: {
+                                association: "propietarios"
+                            }
+                        },
+                        {
+                            association: "Inquilinos"
+                        }
+                    ],
+                    where:
+                    {
+                        id: req.params.id
+                    }
+                }
+            )
+            
+            if(contrato)
+            {
+                res.render("Contrato/Details",{ "Contrato": contrato})
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     async update(req,res)
     {
         try {

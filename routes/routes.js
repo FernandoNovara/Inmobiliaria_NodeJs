@@ -93,6 +93,8 @@ const express = require("express"),
 
         .post("/Contrato/update",ContratoControllers.update)
 
+        .get("/Contrato/Details/:id",ContratoControllers.details)
+
         .get("/Contrato/delete",ContratoControllers.delete)
 
         // Rutas de Pago

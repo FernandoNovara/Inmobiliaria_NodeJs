@@ -1,4 +1,5 @@
 const {dbConfig} = require("../database/db_con")
+const { details } = require("./PropietarioControllers")
 
 module.exports = {
     
@@ -93,6 +94,29 @@ module.exports = {
             if(updateInquilino)
             {
                 res.redirect("/Inquilino/show")
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async details(req,res)
+    {
+        try {
+            
+            const inquilino = await dbConfig.Inquilino.findOne(
+                {
+                    where:
+                    {
+                        id: req.params.id
+                    }
+                }
+            )
+
+            if(inquilino)
+            {
+                res.render("Inquilino/Details",{ "Inquilino": inquilino })
             }
 
         } catch (error) {

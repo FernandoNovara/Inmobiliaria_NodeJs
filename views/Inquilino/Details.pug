@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+
+            h1 Detales de Inquilino
+            br
+            <div>
+                hr
+                dl(class="row")
+                    dt(class = "col-sm-2")= "Nombre"
+
+                    dd(class = "col-sm-10")= Inquilino.Nombre
+
+                    dt(class = "col-sm-2")= "Dni"
+
+                    dd(class = "col-sm-10")= Inquilino.Dni
+
+                    dt(class = "col-sm-2")= "Lugar de Trabajo"
+
+                    dd(class = "col-sm-10")= Inquilino.LugarTrabajo
+  
+                    dt(class = "col-sm-2")= "Direccion"
+
+                    dd(class = "col-sm-10")= Inquilino.Direccion
+
+                    dt(class = "col-sm-2")= "Email"
+                        
+                    dd(class = "col-sm-10")= Inquilino.Email
+                    
+                    dt(class = "col-sm-2")= "Telefono"
+                        
+                    dd(class = "col-sm-10")= Inquilino.Telefono
+
+            a(href="/Inquilino/show",class="btn btn-primary",style="margin-right: 2px;") Volver 
+
+    include ../Modulo/footer.pug

@@ -75,6 +75,8 @@ const express = require("express"),
 
         .post("/Inquilino/update",InquilinoControllers.update)
 
+        .get("/Inquilino/Details/:id",InquilinoControllers.details)
+
         .get("/Inquilino/delete",InquilinoControllers.delete)
         
         // Rutas de Contrato

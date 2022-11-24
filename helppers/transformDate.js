@@ -1,6 +1,6 @@
 module.exports = {
 
-    transformDates(date=null){
+    transformDatetimes(date=null){
         if(date){
             const addZero = (num)=>
             {
@@ -21,6 +21,21 @@ module.exports = {
             hora = `${hrs}:${min}:${sec} ${rango()}`
 
             return fecha + " " + hora
+        }else{
+            return null
+        }
+    },
+
+    transformDates(date=null){
+        if(date){
+            
+            dia = addZero(date.getDate()),
+            mes = addZero(date.getMonth()),
+            anno = date.getFullYear(),
+
+            fecha = `${dia}/${mes}/${anno}`
+
+            return fecha
         }else{
             return null
         }

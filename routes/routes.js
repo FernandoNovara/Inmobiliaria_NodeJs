@@ -129,5 +129,9 @@ const express = require("express"),
         
         .get("/Usuario/delete",UsuarioControllers.delete)
 
+        //Rutas de Login
+
+        .get("/Login",(req,res)=>{ res.render("Login/Login",{MyTitle:"Iniciar Sesion"}) })
+
 
 module.exports = routes

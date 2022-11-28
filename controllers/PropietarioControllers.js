@@ -11,7 +11,7 @@ module.exports = {
 
             if(propietariosList.length > 0)
             {
-                res.render("Propietario/Propietario",{allPropietario: propietariosList , MyTitle:"Inicio de Propietario"})
+                res.render("Propietario/Propietario",{usuario: req.Usuario, allPropietario: propietariosList , MyTitle:"Inicio de Propietario"})
             }
             else
             {
@@ -31,7 +31,7 @@ module.exports = {
             if (!errors.isEmpty()) {
                 if(errors.array()[0].param == "Nombre")
                 {
-                    return res.render("Propietario/Create", { "errorNombre": true})
+                    return res.render("Propietario/Create", { usuario: req.Usuario, "errorNombre": true})
                 }
             }
 
@@ -70,7 +70,7 @@ module.exports = {
 
             if(propietario)
             {
-                res.render("Propietario/Update",{ "Propietario": propietario })
+                res.render("Propietario/Update",{usuario: req.Usuario, "Propietario": propietario })
             }
 
         } catch (error) {
@@ -93,7 +93,7 @@ module.exports = {
 
             if(propietario)
             {
-                res.render("Propietario/Details",{ "Propietario": propietario })
+                res.render("Propietario/Details",{usuario: req.Usuario, "Propietario": propietario })
             }
 
         } catch (error) {

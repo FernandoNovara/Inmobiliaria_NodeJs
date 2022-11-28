@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    include ../Modulo/head.pug
+    body 
+        include ../Modulo/header.pug
+
+        include ../Modulo/main.pug
+            
+            div(class="text-center")
+                h1= msg
+                img(src="/img/homer.gif", alt="alt")
+
+                a(href="/",class="btn btn-primary",style="margin-right: 2px;") Volver
+
+        include ../Modulo/footer.pug            

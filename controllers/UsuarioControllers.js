@@ -12,7 +12,7 @@ module.exports = {
 
             if(usuariosList.length > 0)
             {
-                res.render("Usuario/Usuario",{allUsuario: usuariosList , MyTitle:"Inicio de Usuario"})
+                res.render("Usuario/Usuario",{usuario: req.Usuario, allUsuario: usuariosList , MyTitle:"Inicio de Usuario"})
             }
             else
             {
@@ -64,7 +64,7 @@ module.exports = {
 
             if(usuario)
             {
-                res.render("Usuario/Update",{ "Usuario": usuario })
+                res.render("Usuario/Update",{usuario: req.Usuario, "Usuario": usuario })
             }
 
         } catch (error) {
@@ -87,7 +87,7 @@ module.exports = {
 
             if(usuario)
             {
-                res.render("Usuario/Details",{ "Usuario": usuario })
+                res.render("Usuario/Details",{usuario: req.Usuario, "Usuario": usuario })
             }
 
         } catch (error) {

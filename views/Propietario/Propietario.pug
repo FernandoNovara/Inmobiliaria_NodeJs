@@ -6,6 +6,7 @@ html(lang="en")
 
         include ../Modulo/main.pug
 
+            console.log(Propietario.Usuario)
             h1 Inicio de Propietario
             br
             p
@@ -23,6 +24,8 @@ html(lang="en")
                         th acciones
                 tbody
                     if(allPropietario)
+                    console.log(Usuario.Rol)
+
                         for val in allPropietario
                             tr
                                 td= val.id

@@ -16,7 +16,7 @@ module.exports = {
 
             if(inmueblesList.length > 0)
             {
-                res.render("Inmueble/Inmueble",{"allInmueble": inmueblesList , MyTitle:"Inicio de Inmueble"})
+                res.render("Inmueble/Inmueble",{usuario: req.Usuario, "allInmueble": inmueblesList , MyTitle:"Inicio de Inmueble"})
             }
             else
             {
@@ -36,7 +36,7 @@ module.exports = {
             }
         )
 
-        res.render("Inmueble/Create",{"propietarios": propietario, MyTitle:"Insertar Inmueble"})
+        res.render("Inmueble/Create",{usuario: req.Usuario, "propietarios": propietario, MyTitle:"Insertar Inmueble"})
     },
 
     async create(req,res)
@@ -89,7 +89,7 @@ module.exports = {
             
             if(inmueble)
             {
-                res.render("Inmueble/Update",{ "Inmueble": inmueble, "propietarios": propietario })
+                res.render("Inmueble/Update",{usuario: req.Usuario, "Inmueble": inmueble, "propietarios": propietario })
             }
 
         } catch (error) {
@@ -115,7 +115,7 @@ module.exports = {
             
             if(inmueble)
             {
-                res.render("Inmueble/Details",{ "Inmueble": inmueble })
+                res.render("Inmueble/Details",{usuario: req.Usuario, "Inmueble": inmueble })
             }
 
         } catch (error) {

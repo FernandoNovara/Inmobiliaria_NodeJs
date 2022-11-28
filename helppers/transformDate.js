@@ -42,7 +42,7 @@ module.exports = {
     },
 
     err404(req, res, next){
-        res.render('error', { msg: 'Error 404 - Recurso no encontrado' })
+        res.render('Error/error', { msg: 'Error 404 - Recurso no encontrado' })
         next()
     }
 

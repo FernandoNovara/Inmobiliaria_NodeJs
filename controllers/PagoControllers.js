@@ -29,7 +29,7 @@ module.exports = {
 
             if(pagosList.length > 0)
             {
-                res.render("Pago/Pago",{"allPago": pagosList , MyTitle:"Inicio de Pago"})
+                res.render("Pago/Pago",{usuario: req.Usuario,"allPago": pagosList , MyTitle:"Inicio de Pago"})
             }
             else
             {
@@ -59,7 +59,7 @@ module.exports = {
                 ]
             }
         )
-        res.render("Pago/Create",{"contratos": contrato, MyTitle:"Insertar Pago"})
+        res.render("Pago/Create",{usuario: req.Usuario, "contratos": contrato, MyTitle:"Insertar Pago"})
     },
 
     async create(req,res)
@@ -131,7 +131,7 @@ module.exports = {
             
             if(Pago)
             {
-                res.render("Pago/Update",{ "Pago": Pago, "contratos": contrato })
+                res.render("Pago/Update",{usuario: req.Usuario, "Pago": Pago, "contratos": contrato })
             }
 
         } catch (error) {
@@ -170,7 +170,7 @@ module.exports = {
             
             if(Pago)
             {
-                res.render("Pago/Details",{ "Pago": Pago })
+                res.render("Pago/Details",{usuario: req.Usuario, "Pago": Pago })
             }
 
         } catch (error) {

@@ -8,27 +8,32 @@ header
                     li(class="nav-item")
                         
                     li(class="nav-item")
-                        a(class="nav-link text-white",href="/") Home  
+                        a(class="nav-link text-white",href="/") Home
+                    
+                    if (loged || usuario)
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Propietario/show")) Propietario
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Propietario/show")) Propietario
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Inmueble/show")) Inmueble
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Inmueble/show")) Inmueble
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Inquilino/show")) Inquilino    
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Inquilino/show")) Inquilino    
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Contrato/show")) Contrato
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Contrato/show")) Contrato
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Pago/show")) Pago
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Pago/show")) Pago
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Usuario/show")) Usuario
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Usuario/show")) Usuario
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Salir")) Salir
 
-                    li(class="nav-item")
-                        a(class="nav-link text-white",href=("/Login")) Login
+                    else 
+                        li(class="nav-item")
+                            a(class="nav-link text-white",href=("/Login")) Login
 
                         

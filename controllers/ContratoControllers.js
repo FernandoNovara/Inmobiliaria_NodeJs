@@ -26,7 +26,7 @@ module.exports = {
 
             if(contratosList.length > 0)
             {
-                res.render("Contrato/Contrato",{"allContratos": contratosList , MyTitle:"Inicio de Contrato"})
+                res.render("Contrato/Contrato",{usuario: req.Usuario,"allContratos": contratosList , MyTitle:"Inicio de Contrato"})
             }
             else
             {
@@ -52,7 +52,7 @@ module.exports = {
         )
         
         // console.log(inquilinos)
-        res.render("Contrato/Create",{"inmuebles": inmuebles, "inquilinos": inquilinos, MyTitle:"Insertar Contrato"})
+        res.render("Contrato/Create",{usuario: req.Usuario, "inmuebles": inmuebles, "inquilinos": inquilinos, MyTitle:"Insertar Contrato"})
     },
 
     async create(req,res)
@@ -69,7 +69,7 @@ module.exports = {
                 }    
             )
             if(createContrato)
-                {
+                { 
                     res.redirect("/Contrato/show")
                 }
 
@@ -115,7 +115,7 @@ module.exports = {
             
             if(contrato)
             {
-                res.render("Contrato/Update",{ "Contrato": contrato, "inmuebles": inmuebles, "inquilinos": inquilinos })
+                res.render("Contrato/Update",{usuario: req.Usuario, "Contrato": contrato, "inmuebles": inmuebles, "inquilinos": inquilinos })
             }
 
         } catch (error) {
@@ -149,7 +149,7 @@ module.exports = {
             
             if(contrato)
             {
-                res.render("Contrato/Details",{ "Contrato": contrato})
+                res.render("Contrato/Details",{usuario: req.Usuario, "Contrato": contrato})
             }
 
         } catch (error) {

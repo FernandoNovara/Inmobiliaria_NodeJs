@@ -9,12 +9,14 @@ const express = require("express"),
     viewDir = `${__dirname}/views`,
     publicDir = express.static(`${__dirname}/publics`),
     storageDir = express.static(`${__dirname}/storage`),
+    cookieParser= require('cookie-parser'),
     { connection } = require( './database/db_con' )
 
 
     app.set("port",port)//asigna el puerto
         .set( 'view engine','pug' )//motor de vistas
         .set('views',viewDir)//directorio de vistas
+        .use(cookieParser())
         .use( express.json() )//permite convertir los datos del response a json
         .use(express.urlencoded({extended:false}) )// captura las peticiones de la url
         .use(publicDir)//directorio de archivos publicos

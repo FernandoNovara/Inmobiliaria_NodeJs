@@ -11,7 +11,7 @@ module.exports = {
 
             if(inquilinoList.length > 0)
             {
-                res.render("Inquilino/Inquilino",{allInquilino: inquilinoList , MyTitle:"Inicio de Inquilino"})
+                res.render("Inquilino/Inquilino",{usuario: req.Usuario, allInquilino: inquilinoList , MyTitle:"Inicio de Inquilino"})
             }
             else
             {
@@ -63,7 +63,7 @@ module.exports = {
 
             if(inquilino)
             {
-                res.render("Inquilino/Update",{ "Inquilino": inquilino })
+                res.render("Inquilino/Update",{usuario: req.Usuario, "Inquilino": inquilino })
             }
 
         } catch (error) {
@@ -116,7 +116,7 @@ module.exports = {
 
             if(inquilino)
             {
-                res.render("Inquilino/Details",{ "Inquilino": inquilino })
+                res.render("Inquilino/Details",{usuario: req.Usuario, "Inquilino": inquilino })
             }
 
         } catch (error) {

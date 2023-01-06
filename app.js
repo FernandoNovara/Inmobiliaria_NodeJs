@@ -1,7 +1,5 @@
 'use strict'
 
-const { route } = require("./routes/routes")
-
 const express = require("express"),
     app = express(),
     port = 4000,
